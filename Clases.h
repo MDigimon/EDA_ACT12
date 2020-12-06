@@ -17,6 +17,7 @@ class Arreglo{
 		~Arreglo();
 		void insertar_inicio(const T& s);
 		void insertar_final(const T& s);
+		void insertar(const T& s, size_t p);
 		void expandir();
 		size_t size();
 		
@@ -57,6 +58,24 @@ void Arreglo<T>::insertar_inicio(const T& s){
 	arreglo[0] = s;
 	cont++;
 }
+
+template<class T>
+void Arreglo<T>::insertar(const T& s, size_t p){
+	if(p > cont){
+		cout << "Posicion No Valida" << endl;
+		system("pause");
+		return;
+	}
+	if(cont == tam){
+		expandir();
+	}
+	for(size_t i=cont; i>p; i--){
+		arreglo[i] = arreglo[i-1];
+	}
+	arreglo[p] = s;
+	cont++;
+}
+
 
 template<class T>
 void Arreglo<T>::expandir(){
