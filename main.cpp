@@ -43,6 +43,7 @@ int main() {
 					if(num[i] != 0){
 						cout << "Posicion Invalida" << endl;
 						system("pause");
+						break;
 						g = 0;
 					}
 				}
