@@ -21,6 +21,10 @@ class Arreglo{
 		void expandir();
 		size_t size();
 		
+		void eliminar_inicio();
+		void eliminar_final();
+		void eliminar(size_t p);
+		
 		string operator[](size_t p){
 			return arreglo[p];
 		}
@@ -75,6 +79,47 @@ void Arreglo<T>::insertar(const T& s, size_t p){
 	arreglo[p] = s;
 	cont++;
 }
+
+
+template<class T>
+void Arreglo<T>::eliminar_inicio(){
+	if(cont == 0){
+		cout << "Arreglo Vacio" << endl;
+		return;
+	}
+	for(size_t i=0; i<cont-1; i++){
+		arreglo[i] = arreglo[i+1];
+	}
+	cout << "Dato Eliminado" << endl;
+	cont--;
+}
+
+
+template<class T>
+void Arreglo<T>::eliminar_final(){
+	if(cont == 0){
+		cout << "Arreglo Vacio" << endl;
+		return;
+	}
+	cont--;
+	cout << "Dato Eliminado" << endl;
+}
+
+
+template<class T>
+void Arreglo<T>::eliminar(size_t p){
+	if(cont == 0){
+		cout << "Arreglo Vacio" << endl;
+		return;
+	}
+	for(size_t i=p; i<cont-1; i++){
+		arreglo[i] = arreglo[i+1];
+	}
+	cout << "Dato Eliminado" << endl;
+	cont--;
+}
+
+
 
 
 template<class T>
